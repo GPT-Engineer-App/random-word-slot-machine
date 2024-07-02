@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { wordsList } from "@/data/wordsList";
+import slotMachineImage from "@/../public/images/slot-machine.png";
 
 const getRandomWord = () => {
   const randomIndex = Math.floor(Math.random() * wordsList.length);
@@ -23,6 +24,7 @@ const Index = () => {
           <CardTitle className="text-center text-3xl font-bold text-gray-800">Machine à sous pour mots aléatoires</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col items-center">
+          <img src={slotMachineImage} alt="Slot Machine" className="mb-4 w-64 h-auto" />
           <p className="mb-4 text-center text-lg text-gray-600">Tirez le levier pour obtenir un mot aléatoire et sa définition !</p>
           <Button onClick={handlePullLever} className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">Tirer le levier</Button>
           {word && (
