@@ -29,6 +29,7 @@ const Index = () => {
             <div className="text-center mt-4 p-4 bg-yellow-100 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold text-gray-800">{word.word}</h2>
               <p className="text-lg text-gray-700">{word.definition}</p>
+              <p className="text-sm text-gray-500 mt-2">{word.reason}</p>
             </div>
           )}
         </CardContent>
