@@ -15,12 +15,17 @@ const getRandomWord = () => {
 const Index = () => {
   const [word, setWord] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [showStars, setShowStars] = useState(false);
 
   const handlePullLever = () => {
     const randomWord = getRandomWord();
     setWord(randomWord);
     setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 3000);
+    setShowStars(true);
+    setTimeout(() => {
+      setShowConfetti(false);
+      setShowStars(false);
+    }, 3000);
   };
 
   const spinAnimation = useSpring({
@@ -28,6 +33,12 @@ const Index = () => {
     to: { transform: "rotate(360deg)" },
     config: { duration: 1000 },
     reset: true,
+  });
+
+  const starAnimation = useSpring({
+    from: { opacity: 0, transform: "scale(0)" },
+    to: { opacity: showStars ? 1 : 0, transform: showStars ? "scale(1)" : "scale(0)" },
+    config: { duration: 500 },
   });
 
   return (
@@ -46,6 +57,16 @@ const Index = () => {
               <h2 className="text-2xl font-bold text-gray-800">{word.word}</h2>
               <p className="text-lg text-gray-700">{word.definition}</p>
             </div>
+          )}
+          {showStars && (
+            <animated.div style={starAnimation} className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              <div className="relative w-64 h-64">
+                <div className="absolute top-0 left-0 w-4 h-4 bg-yellow-400 rounded-full"></div>
+                <div className="absolute top-0 right-0 w-4 h-4 bg-yellow-400 rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-4 h-4 bg-yellow-400 rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-4 h-4 bg-yellow-400 rounded-full"></div>
+              </div>
+            </animated.div>
           )}
         </CardContent>
       </Card>
