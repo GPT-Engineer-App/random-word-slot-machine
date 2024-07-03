@@ -26,7 +26,7 @@ const Index = () => {
         <CardContent className="flex flex-col items-center">
           <img src={slotMachineImage} alt="Slot Machine" className="mb-4 w-64 h-64" />
           <p className="mb-4 text-center text-lg text-gray-600">Appuyez pour obtenir un mot aléatoire et sa définition !</p>
-          <Button onClick={handlePullLever} className="mb-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">Appuyer</Button>
+          <Button onClick={handlePullLever} className="mb-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 text-2xl">Appuyer</Button>
           {word && (
             <div className="text-center mt-4 p-4 bg-yellow-100 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold text-gray-800">{word.word}</h2>
